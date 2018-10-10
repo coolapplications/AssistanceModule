@@ -19,7 +19,7 @@ class AssistenceReport extends Migration
             $table->foreign("athlete_id")->references("id")->on("athlete");
             $table->date('date');
             $table->boolean('assisted');
-            $table->timestamps();;
+            $table->timestamps();
         });
     }
 
@@ -30,7 +30,7 @@ class AssistenceReport extends Migration
      */
     public function down()
     {
-        Schema::drop('assistance');
+        Schema::dropIfExists('assistance');
 
     }
 }

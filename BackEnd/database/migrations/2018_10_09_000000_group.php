@@ -18,8 +18,6 @@ class Group extends Migration
             $table->string('name');
             $table->integer("couch_id")->unsigned();
             $table->foreign("couch_id")->references("id")->on("couch");
-            $table->integer("athlete_id")->unsigned();
-            $table->foreign("athlete_id")->references("id")->on("athlete");
             $table->timestamps();
         });
     }

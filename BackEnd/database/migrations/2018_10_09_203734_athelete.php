@@ -17,8 +17,12 @@ class Athelete extends Migration
             $table->increments('id');
             $table->string("name");
             $table->string("dni");
-            $table->string("dataContact");
+            $table->string("phone");
             $table->timestamps();
+        });
+        Schema::table('athlete', function (Blueprint $table){
+            $table->integer("group_id")->unsigned();
+            $table->foreign("group_id")->references("id")->on("group");
         });
     }
 
@@ -29,7 +33,7 @@ class Athelete extends Migration
      */
     public function down()
     {
-        Schema::drop('athlete');
+        Schema::dropIfExists('athlete');
 
     }
 }
