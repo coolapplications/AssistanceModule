@@ -19,6 +19,10 @@ class Couch extends Migration
             $table->string("dni");
             $table->timestamps();
         });
+        Schema::table('couch', function (Blueprint $table){
+            $table->integer("group_id")->unsigned();
+            $table->foreign("group_id")->references("id")->on("group");
+        });
     }
 
     /**
@@ -28,6 +32,6 @@ class Couch extends Migration
      */
     public function down()
     {
-        Schema::drop('couch');
+        Schema::dropIfExists('couch');
     }
 }
